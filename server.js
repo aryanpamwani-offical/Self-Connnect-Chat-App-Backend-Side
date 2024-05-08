@@ -3,26 +3,23 @@ const app= express();
 require('dotenv').config();
 const PORT=process.env.PORT || 7000;
 const cors=require('cors');
-// const bodyParser=require("body-parser");
 const  dbConnect  = require('./Config/db');
 const authRoutes=require('./routes/userRoutes')
 const chatRoutes=require('./routes/chatRoutes')
 const messageRoutes=require('./routes/messageRoute')
-// const groupRoutes=require('./routes/groupRoutes')
+
 const { notFound, errorHandler } = require("./Middleware/errorMiddleware");
 
 
 
 app.use(cors())
 app.use(express.json());
-// app.use(bodyParser.json())
-// app.use(bodyParser.urlencoded({ extended: false }));
+
 
 dbConnect();
 
 app.use('/api/v1',authRoutes)
 app.use("/chats", chatRoutes);
-// app.use("/groupchats", groupRoutes);
 app.use("/message", messageRoutes);
 
 // Error Handling middlewares
@@ -74,4 +71,21 @@ const io = require("socket.io")(server, {
     });
   
     
+    
+
   });
+  // Auth urls 
+  // http://localhost:7000/api/v1/auth/signup
+  // http://localhost:7000/api/v1/auth/login
+  // http://localhost:7000/api/v1/auth/user
+
+  // Chat urls 
+  // http://localhost:7000/chats/
+
+  // Message Url
+ 
+  // http://localhost:7000/message/:chatId
+  //http://localhost:7000/message/
+
+ 
+  
