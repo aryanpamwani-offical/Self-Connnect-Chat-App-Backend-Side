@@ -74,18 +74,7 @@ const io = require("socket.io")(server, {
     
 
   });
-  // Auth urls 
-  // http://localhost:7000/api/v1/auth/signup
-  // http://localhost:7000/api/v1/auth/login
-  // http://localhost:7000/api/v1/auth/user
 
-  // Chat urls 
-  // http://localhost:7000/chats/
-
-  // Message Url
- 
-  // http://localhost:7000/message/:chatId
-  //http://localhost:7000/message/
 
  
   
